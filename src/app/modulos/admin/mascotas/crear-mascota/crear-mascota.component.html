@@ -1,0 +1,62 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Solicitud de Afiliación de Mascota</h1>
+    </div> 
+    <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="GuardarMascota()">
+                <div class="details-box">
+                    <div class="input-box">
+                        <span class="details">Nombre*</span>
+                        <input type="text" formControlName="nombre" placeholder="Ingrese el nombre de su mascota" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Especie*</span>
+                        <input type="text" formControlName="especie" placeholder="Ingrese la especie de su mascota" required>
+                    </div>
+
+                    <div class="select-box">
+                        <span class="details">Propietario*</span>
+                        <select class="form-control"  formControlName="usuario" required>
+                            <option value="" disabled hidden selected>Seleccione el propietario a asignar</option>
+                            <option *ngFor="let u of listadoUsuarios" value="{{u.id}}">{{u.nombre}} {{u.apellidos}} - C.C. {{u.cedula}}</option>
+                        </select>
+                    </div>
+
+                    <!--div class="select-box">
+                        <span class="details">Asesor*</span>
+                        <select class="form-control"  formControlName="usuario" required>
+                            <option value="" disabled hidden selected>Seleccione el propietario a asignar</option>
+                            <option *ngFor="let a of listadoAsesores" value="{{a.id}}">{{a.nombre}} {{a.apellidos}} - C.C. {{a.cedula}}</option>
+                        </select>
+                    </div/-->
+
+                    <div class="select-box">
+                        <span class="details">Plan*</span>
+                        <select class="form-control"  formControlName="plan" required>
+                            <option value="" disabled hidden selected>Seleccione el Plan a asignar</option>
+                            <option *ngFor="let p of listadoPlanes" value="{{p.id}}">{{p.nombre}}</option>
+                        </select>
+                    </div>
+
+                    <!--div class="input-box">
+                        <span class="details">Selecciona una Foto*</span>
+                        <input type="file" formControlName="foto" placeholder="Suba una foto de su mascota" required accept="image/*">
+                    </div/-->
+                    <input type="hidden" formControlName="foto" required>
+
+                    <input type="hidden" formControlName="estado" value="Pendiente" required>
+                    <input type="hidden" formControlName="comentario" required>
+                    
+                </div>
+
+                <div class="button-box">
+                    <button routerLink="/admin/consultar-mascota"><i class="arrow-left"></i>Volver</button>
+                    <button [disabled]="!fgValidador.valid" type="submit" >Enviar solicitud<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+    </div>
+</div>

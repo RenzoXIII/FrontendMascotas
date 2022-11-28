@@ -1,0 +1,40 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Editar Sucursal</h1>
+    </div> 
+    <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="EditarSucursal()">
+            <div class="details-box">
+
+                    <input type="hidden" formControlName="id" required>
+
+                    <div class="input-box">
+                        <span class="details">Departamento*</span>
+                        <input type="text" formControlName="departamento" placeholder="Ingrese el departamento donde se ubica la sucursal" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Ciudad*</span>
+                        <input type="text" formControlName="ciudad" placeholder="Ingrese la ciudad donde se ubica la sucursal" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Dirección*</span>
+                        <input type="text" formControlName="direccion" placeholder="Ingrese la dirección donde se ubica la sucursal" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Teléfono*</span>
+                        <input type="text" formControlName="telefono" placeholder="Ingrese el número de teléfono de la sucursal" required>
+                    </div>
+                </div>
+                <div class="button-box">
+                    <button routerLink="/admin/consultar-sucursal"><i class="arrow-left"></i>Volver</button>
+                    <button [disabled]="!fgValidador.valid" type="submit" >Actualizar<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+    </div>
+</div>

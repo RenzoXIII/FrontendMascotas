@@ -1,0 +1,80 @@
+<div class="contenido">
+    <div class="title-container">
+        <h1>Listado de Mascotas</h1>
+    </div> 
+    <hr>
+    <div class="button-box">
+        <button routerLink="/inicio"><i class="arrow-left"></i>Volver</button>
+        <button routerLink="/admin/crear-mascota">Nueva Solicitud de Afiliación<i class="arrow-right"></i></button>
+    </div>
+    <hr>
+    <div class="div-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Especie
+                    </th>
+                    <th>
+                        Propietario
+                    </th>
+                    <th>
+                        Teléfono
+                    </th>
+                    <th>
+                        Correo
+                    </th>
+                    <th>
+                        Plan
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th>
+                        Comentario
+                    </th>
+                    <th *ngIf="esAdmin || esAsesor">
+                        Opciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of listadoMascotas" >
+                    <td>
+                        {{p.nombre}}
+                    </td>
+                    <td>
+                        {{p.especie}}
+                    </td>
+                    <td>
+                        {{p.usuario?.nombre}} {{p.usuario?.apellidos}} - C.C. {{p.usuario?.cedula}}
+                    </td>
+                    <td>
+                        {{p.usuario?.telefono}}
+                    </td>
+                    <td>
+                        {{p.usuario?.correo}}
+                    </td>
+                    <td>
+                        {{p.plan?.nombre}}
+                    </td>
+                    <td [ngStyle]="(p.estado == 'Rechazado' && {'background-color': '#ff6666'}) || p.estado == 'Aceptado' && {'background-color': '#66ff66'} || p.estado == 'Pendiente' && {'background-color': '#bfbfbf'} || null">
+                        {{p.estado}}
+                    </td>
+                    <td style="white-space: pre-wrap; text-align: left; min-width: 200px;" [ngStyle]="(p.estado == 'Rechazado' && {'background-color': '#ff6666'}) || p.estado == 'Aceptado' && {'background-color': '#66ff66'} || p.estado == 'Pendiente' && {'background-color': '#bfbfbf'} || null">
+                        {{p.comentario}}
+                    </td>
+                    <td *ngIf="esAdmin || esAsesor" style="min-width: 200px;">
+                        <div class="button-box">
+                            <button *ngIf="(p.estado != 'Pendiente')" class="long-btn" routerLink="/admin/editar-mascota/{{p.id}}">Actualizar</button>
+                            <button *ngIf="(p.estado == 'Pendiente')" class="long-btn" routerLink="/admin/editar-mascota/{{p.id}}">Asignar decisión</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Editar Plan</h1>
+    </div> 
+    <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="EditarPlan()">
+                <div class="details-box">
+
+                    <input type="hidden" formControlName="id" required>
+
+                    <div class="input-box">
+                        <span class="details">Nombre*</span>
+                        <input type="text" formControlName="nombre" placeholder="Ingrese el nombre del plan" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <span class="details">Precio*</span>
+                        <input type="number" formControlName="precio" min="0" placeholder="Ingrese el precio del plan" required>
+                    </div>
+
+                </div>
+                <div>
+                    <div class="details-box">
+                        <div class="text-box">
+                            <span class="details">Descripción*</span>
+                            <textarea formControlName="descripcion" placeholder="Ingrese la descripción del plan" ></textarea>
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div class="button-box">
+                    <button routerLink="/admin/consultar-plan"><i class="arrow-left"></i>Volver</button>
+                    <button [disabled]="!fgValidador.valid" type="submit" >Actualizar<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+    </div>
+</div>

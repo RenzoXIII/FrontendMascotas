@@ -1,0 +1,24 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Recuperar Contraseña</h1>
+    </div> 
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="RecuperarContrasena()">
+                <div class="details-box">
+
+                    <div class="input-box-2">
+                        <span class="details">Correo*</span>
+                        <input type="email" formControlName="correo" placeholder="Ingrese su dirección de email" required>
+                    </div>
+        
+                </div>
+
+                <div class="button-box">
+                    <button routerLink="/seguridad/identificacion"><i class="arrow-left"></i>Volver</button>
+                    <button [disabled]="!fgValidador.valid" type="submit" >Recuperar Contraseña<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+    </div>
+</div>

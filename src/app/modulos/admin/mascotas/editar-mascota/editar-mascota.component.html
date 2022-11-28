@@ -1,0 +1,72 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Solicitud de Afiliación de Mascota</h1>
+    </div> 
+    <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="EditarMascota()">
+            <div class="details-box">
+
+                <input type="hidden" formControlName="id" required>
+
+                <div class="input-box">
+                    <span class="details">Nombre*</span>
+                    <input type="text" formControlName="nombre" placeholder="Ingrese el nombre de su mascota" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Especie*</span>
+                    <input type="text" formControlName="especie" placeholder="Ingrese la especie de su mascota" required>
+                </div>
+
+
+                <div class="select-box">
+                    <span class="details">Propietario*</span>
+                    <select class="form-control"  formControlName="usuario" required>
+                        <option value="" disabled hidden selected>Seleccione el propietario a asignar</option>
+                        <option *ngFor="let u of listadoUsuarios" value="{{u.id}}">{{u.nombre}} {{u.apellidos}} - C.C. {{u.cedula}}</option>
+                    </select>
+                </div>
+
+
+                <div class="select-box">
+                    <span class="details">Plan*</span>
+                    <select class="form-control"  formControlName="plan" required>
+                        <option value="" disabled hidden selected>Seleccione el Plan a asignar</option>
+                        <option *ngFor="let p of listadoPlanes" value="{{p.id}}">{{p.nombre}}</option>
+                    </select>
+                </div>
+
+                <div class="select-box">
+                    <span class="details">Estado de la Solicitud*</span>
+                    <select class="form-control"  formControlName="estado" required>
+                        <option value="" disabled hidden selected>Seleccione el estado a asignar</option>
+                        <option value="Aceptado">Aceptado</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Rechazado">Rechazado</option>
+                    </select>
+                </div>
+
+                <input type="hidden" formControlName="foto" required>
+                
+            </div>
+
+            <div>
+                <div class="details-box">
+                    <div class="text-box">
+                        <span class="details">Comentarios*</span>
+                        <textarea formControlName="comentario" placeholder="Ingrese los comentarios finales sobr ela solicitud" required></textarea>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="button-box">
+                <button routerLink="/admin/consultar-mascota"><i class="arrow-left"></i>Volver</button>
+                <button [disabled]="!fgValidador.valid" type="submit" >Actualizar Solicitud<i class="arrow-right"></i></button>
+            </div> 
+        </form>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Editar Producto</h1>
+    </div> 
+    <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="EditarProducto()">
+                <div class="details-box">
+
+                    <input type="hidden" formControlName="id" required>
+
+                    <div class="input-box">
+                        <span class="details">Nombre*</span>
+                        <input type="text" formControlName="nombre" placeholder="Ingrese el nombre del producto" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <span class="details">Precio*</span>
+                        <input type="number" formControlName="precio" min="0" placeholder="Ingrese el precio del producto" required>
+                    </div>
+
+                    <div class="select-box">
+                        <span class="details">Tipo*</span>
+                        <select class="form-control"  formControlName="tipo" required>
+                            <option value="" disabled hidden selected>Seleccione el tipo de producto</option>
+                            <option value="Plan">Plan</option>
+                            <option value="Alimento">Alimento</option>
+                            <option value="Medicamento">Medicamento</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="details-box">
+                        <div class="text-box">
+                            <span class="details">Descripción*</span>
+                            <textarea formControlName="descripcion" placeholder="Ingrese la descripción del producto" ></textarea>
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div class="button-box">
+                    <button routerLink="/admin/consultar-producto"><i class="arrow-left"></i>Volver</button>
+                    <button [disabled]="!fgValidador.valid" type="submit" >Actualizar<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Iniciar sesión</h1>
+    </div> 
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="IdentificarUsuario()">
+                <div class="details-box">
+                    <div class="input-box">
+                        <span class="details">Usuario*</span>
+                        <input type="email" formControlName="usuario" placeholder="Ingrese su usuario" required>
+                        <!--div *ngIf="myform.submitted && fgValidador.controls['usuario'].errors" style="display: block; color: red;">
+                            <p class="sub-text">Error</p>
+                        </div/-->
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Contraseña*</span>
+                        <input type="password" formControlName="contrasena" placeholder="Ingrese su contraseña" required>
+                    </div>
+                
+                </div>
+
+                <div class="button-box">
+                    <button [disabled]="!fgValidador.valid" class="long-btn" type="submit" >Iniciar sesión<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+
+        <hr>
+
+        <div class="button-box">
+            <button routerLink="/seguridad/recuperar-clave">¿Olvidaste tu contraseña?</button>
+            <button routerLink="/admin/crear-cliente">¿Eres nuevo? Regístrate</button>
+        </div>
+    </div>
+</div>

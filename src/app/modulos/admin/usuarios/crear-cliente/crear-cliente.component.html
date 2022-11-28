@@ -1,0 +1,46 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>¡Únete hoy mismo!</h1>
+    </div> 
+    <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="GuardarUsuario()">
+                <div class="details-box">
+                    <div class="input-box">
+                        <span class="details">Nombre*</span>
+                        <input type="text" formControlName="nombre" placeholder="Ingrese su nombre" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Apellidos*</span>
+                        <input type="text" formControlName="apellidos" placeholder="Ingrese sus apellidos" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Cédula*</span>
+                        <input type="text" formControlName="cedula" placeholder="Ingrese su cédula" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Teléfono*</span>
+                        <input type="text" formControlName="telefono" placeholder="Ingrese su número de teléfono" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Correo*</span>
+                        <input type="email" formControlName="correo" placeholder="Ingrese su dirección de email" required>
+                    </div>
+
+                    <input type="hidden" formControlName="rol" value="cliente" required>
+                    
+                </div>
+
+                <div class="button-box">
+                    <button routerLink="/admin/consultar-usuario"><i class="arrow-left"></i>Volver</button>
+                    <button [disabled]="!fgValidador.valid" type="submit" >Registrarse<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<header>
+    <nav>
+        <input type="checkbox" id="show-menu" role="button">
+        <label for="show-menu" class="show-menu"><i class="arrow-down-1"></i></label>
+        
+        <li class="logo">
+            <a class="svg-logo" routerLink="/inicio"><img src="assets/Imagenes/LogoMascotaFeliz.svg" alt="Paws logo"></a>
+            <a class="text-logo" routerLink="/inicio">Pawmi</a>
+        </li>
+
+
+        <div class="menu">
+            <li><a routerLink="/inicio">Inicio</a></li>
+
+            <li *ngIf="seInicioSesion" class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Usuarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a *ngIf="esAdmin || esAsesor" routerLink="/admin/crear-usuario">Crear Usuario</a>
+                    <a routerLink="/admin/consultar-usuario">Consultar Usuarios</a>
+                </div>
+            </li>
+
+            <li *ngIf="seInicioSesion" class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Mascotas<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a routerLink="/admin/crear-mascota">Crear Solicitud de Afiliación</a>
+                    <a routerLink="/admin/consultar-mascota">Consultar Solicitudes</a>
+                </div>
+            </li>
+
+            <li *ngIf="seInicioSesion" class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Planes<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a *ngIf="esAdmin" routerLink="/admin/crear-plan">Crear Plan</a>
+                    <a routerLink="/admin/consultar-plan">Consultar Planes</a>
+                </div>
+            </li>
+
+            <li *ngIf="seInicioSesion" class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Productos<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a *ngIf="esAdmin" routerLink="/admin/crear-producto">Crear Producto</a>
+                    <a routerLink="/admin/consultar-producto">Consultar Productos</a>
+                </div>
+            </li>
+
+            <li *ngIf="seInicioSesion" class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Sucursales<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a *ngIf="esAdmin" routerLink="/admin/crear-sucursal">Crear Sucursal</a>
+                    <a routerLink="/admin/consultar-sucursal">Consultar Sucursales</a>
+                </div>
+            </li>
+
+            
+            <!--li><a asp-page="/Misc/ConsultaGeneral">Consulta Base de Datos</a></li-->
+            
+            <li *ngIf="!seInicioSesion" style="float:right"><a routerLink="/admin/crear-cliente">Registrarse</a></li>
+            <li *ngIf="!seInicioSesion" style="float:right"><a routerLink="/seguridad/identificacion">Iniciar sesión</a></li>
+
+            <li *ngIf="seInicioSesion" style="float:right" class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Mi Perfil<i class="arrow-down"></i></a>
+                <div class="dropdown-content" style="right: 0%;">
+                    <a class="info-user"><b>{{rol}}</b><br><p>{{correo}}</p></a><hr>
+                    <a routerLink="/admin/editar-usuario/{{id}}">Datos Personales</a>
+                    <a *ngIf="!esAdmin && !esAsesor" routerLink="/admin/consultar-mascota">Mis Mascotas</a>
+                    <a routerLink="/seguridad/cerrar-sesion">Cerrar sesión</a>
+                </div>
+            </li>
+            
+
+        </div>
+    </nav>
+</header>

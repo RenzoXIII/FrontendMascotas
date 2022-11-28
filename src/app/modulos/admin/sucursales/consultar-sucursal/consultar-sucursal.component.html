@@ -1,0 +1,58 @@
+<div class="contenido">
+    <div class="title-container">
+        <h1>Listado de Sucursales</h1>
+    </div> 
+    <hr>
+    <div *ngIf="esAdmin" class="button-box">
+        <button routerLink="/inicio"><i class="arrow-left"></i>Volver</button>
+        <button routerLink="/admin/crear-sucursal">Crear Nueva Sucursal<i class="arrow-right"></i></button>
+    </div>
+    <div *ngIf="!esAdmin" class="button-box">
+        <button class="long-btn" routerLink="/inicio"><i class="arrow-left"></i>Volver</button>
+    </div>
+    <hr>
+    <div class="div-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Departamento
+                    </th>
+                    <th>
+                        Ciudad
+                    </th>
+                    <th>
+                        Dirección
+                    </th>
+                    <th>
+                        Teléfono
+                    </th>
+                    <th *ngIf="esAdmin">
+                        Opciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of listadoSucursales">
+                    <td>
+                        {{p.departamento}}
+                    </td>
+                    <td>
+                        {{p.ciudad}}
+                    </td>
+                    <td>
+                        {{p.direccion}}
+                    </td>
+                    <td>
+                        {{p.telefono}}
+                    </td>
+                    <td style="width: 200px;" *ngIf="esAdmin">
+                        <div class="button-box">
+                            <button class="long-btn" routerLink="/admin/editar-sucursal/{{p.id}}">Editar</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+</div>

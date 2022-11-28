@@ -1,0 +1,53 @@
+<div class="contenido">
+    <div class="title-container">
+        <h1>Listado de Planes</h1>
+    </div> 
+    <hr>
+    <div *ngIf="esAdmin" class="button-box">
+        <button routerLink="/inicio"><i class="arrow-left"></i>Volver</button>
+        <button routerLink="/admin/crear-plan">Crear Nuevo Plan<i class="arrow-right"></i></button>
+    </div>
+    <div *ngIf="!esAdmin" class="button-box">
+        <button class="long-btn" routerLink="/inicio"><i class="arrow-left"></i>Volver</button>
+    </div>
+    <hr>
+    <div class="div-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Descripción
+                    </th>
+                    <th>
+                        Precio
+                    </th>
+                    <th *ngIf="esAdmin">
+                        Opciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of listadoPlanes">
+                    <td>
+                        <b>{{p.nombre}}</b>
+                        
+                    </td>
+                    <td style="white-space: pre-wrap; text-align: left;">
+                        {{p.descripcion}}
+                    </td>
+                    <td>
+                        $ {{p.precio}}
+                    </td>
+                    <td *ngIf="esAdmin" style="width: 200px;">
+                        <div class="button-box">
+                            <button class="long-btn" routerLink="/admin/editar-plan/{{p.id}}">Editar</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+</div>

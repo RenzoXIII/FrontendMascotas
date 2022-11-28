@@ -1,0 +1,54 @@
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Registrar Usuario</h1>
+    </div> 
+    <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+    <hr>
+    <div class="form-container">
+        <form [formGroup]="fgValidador" (ngSubmit)="GuardarUsuario()">
+                <div class="details-box">
+                    <div class="input-box">
+                        <span class="details">Nombre*</span>
+                        <input type="text" formControlName="nombre" placeholder="Ingrese su nombre" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Apellidos*</span>
+                        <input type="text" formControlName="apellidos" placeholder="Ingrese sus apellidos" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Cédula*</span>
+                        <input type="text" formControlName="cedula" placeholder="Ingrese su cédula" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Teléfono*</span>
+                        <input type="text" formControlName="telefono" placeholder="Ingrese su número de teléfono" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Correo*</span>
+                        <input type="email" formControlName="correo" placeholder="Ingrese su dirección de email" required>
+                    </div>
+
+                    <div class="select-box">
+                        <span class="details">Rol*</span>
+                        <select class="form-control"  formControlName="rol" required>
+                            <option value="" disabled hidden selected>Seleccione el rol a asignar</option>
+                            <option value="Cliente">Cliente</option>
+                            <option value="Asesor">Asesor</option>
+                            <option *ngIf="esAdmin" value="Admin">Administrador</option>
+                        </select>
+                    </div>
+                    
+                </div>
+
+                <div class="button-box">
+                    <button routerLink="/admin/consultar-usuario"><i class="arrow-left"></i>Volver</button>
+                    <button [disabled]="!fgValidador.valid" type="submit" >Registrar<i class="arrow-right"></i></button>
+                </div> 
+        </form>
+    </div>
+</div>
