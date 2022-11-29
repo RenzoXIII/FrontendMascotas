@@ -33,7 +33,7 @@
                     <th>
                         Correo
                     </th>
-                    <th style="width: 200px;">
+                    <th style="min-width: 200px;">
                         Opciones
                     </th>
                 </tr>
@@ -58,7 +58,7 @@
                     <td>
                         {{p.correo}}
                     </td>
-                    <td style="width: 200px;">
+                    <td style="min-width: 200px;">
                         <div class="button-box">
                             <button class="long-btn" routerLink="/admin/editar-usuario/{{p.id}}">Editar</button>
                             <button *ngIf="!esAdmin && !esAsesor" class="long-btn" routerLink="/admin/consultar-mascota">Ver Mascotas</button>

@@ -27,7 +27,7 @@
                     <th>
                         Teléfono
                     </th>
-                    <th style="width: 200px;" *ngIf="esAdmin">
+                    <th style="min-width: 200px;" *ngIf="esAdmin">
                         Opciones
                     </th>
                 </tr>
@@ -46,7 +46,7 @@
                     <td>
                         {{p.telefono}}
                     </td>
-                    <td style="width: 200px;" *ngIf="esAdmin">
+                    <td style="min-width: 200px;" *ngIf="esAdmin">
                         <div class="button-box">
                             <button class="long-btn" routerLink="/admin/editar-sucursal/{{p.id}}">Editar</button>
                         </div>
