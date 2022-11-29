@@ -47,12 +47,12 @@ export class SeguridadService {
       datos.rolActivo = datos.datos.rol;
     };
     let stringDatos = JSON.stringify(datos);
-    localStorage.setItem("datosSesion", stringDatos);
+    sessionStorage.setItem("datosSesion", stringDatos);
     this.RefrescarDatosSesion(datos);
   }
 
   ObtenerInformacionSesion(){
-    let datosString = localStorage.getItem("datosSesion");
+    let datosString = sessionStorage.getItem("datosSesion");
     if(datosString){
       let datos = JSON.parse(datosString);
       return datos;
@@ -62,17 +62,17 @@ export class SeguridadService {
   }
 
   EliminarInformacionSesion(){
-    localStorage.removeItem("datosSesion");
+    sessionStorage.removeItem("datosSesion");
     this.RefrescarDatosSesion(new ModeloIdentificar());
   }
 
   SeHaIniciadoSesion(){
-    let datosString = localStorage.getItem("datosSesion");
+    let datosString = sessionStorage.getItem("datosSesion");
     return datosString;
   }
 
   ObtenerToken(){
-    let datosString = localStorage.getItem("datosSesion");
+    let datosString = sessionStorage.getItem("datosSesion");
     if(datosString){
       let datos = JSON.parse(datosString);
       return datos.tk;
