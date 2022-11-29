@@ -6,7 +6,8 @@ import { InicioComponent } from './plantilla/inicio/inicio.component';
 const routes: Routes = [
   {
     path:'inicio',
-    component: InicioComponent
+    component: InicioComponent,
+    title: 'Inicio'
   },
   {
     path:'',
@@ -23,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: ErrorComponent
+    component: ErrorComponent,
+    title: 'Error'
   }
 
 ];
