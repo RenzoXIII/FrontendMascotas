@@ -310,6 +310,11 @@ nav input[type=checkbox]:checked ~ label .arrow-down-1{
     color: #02AD9D;
     text-align: center;
 }
+.contenido .plan-titulo-2{
+    font-size: 5em;
+    color: #02AD9D;
+    text-align: left;
+}
 .plan-unit{
     width: calc(100% / 3 - 8px);
 }
@@ -1171,6 +1176,11 @@ footer .logo-wrapper .svg-logo{
         color: #02AD9D;
         text-align: center;
     }
+    .contenido .plan-titulo-2{
+        font-size: 4em;
+        color: #02AD9D;
+        text-align: left;
+    }
     .plan-unit{
         width: 100%;
     }
@@ -1346,6 +1356,11 @@ footer .logo-wrapper .svg-logo{
         font-size: 2.3em;
         color: #02AD9D;
         text-align: center;
+    }
+    .contenido .plan-titulo-2{
+        font-size: 3.5em;
+        color: #02AD9D;
+        text-align: left;
     }
 }
 
