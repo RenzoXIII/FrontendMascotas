@@ -11,13 +11,22 @@
             <h2>¡Veterinario en su hogar!</h2>
             <br>
             <h3 style="font-size: 1.3em;"><b>¡Bienvenido!</b></h3>
-            <h3 style="font-size: 1.3em;">Si aún no tienes una cuenta</h3>
-            <div class="button-box">
-                <a type="button" href="#S1" style="width: 100%; margin-bottom: 20px;">Registrate<i class="arrow-right"></i></a>
+            <h3 *ngIf="!seInicioSesion" style="font-size: 1.3em;">Si aún no tienes una cuenta</h3>
+            <div *ngIf="!seInicioSesion" class="button-box">
+                <a type="button" routerLink="/admin/crear-cliente" style="width: 100%; margin-bottom: 20px;">Registrate<i class="arrow-right"></i></a>
             </div>
-            <h3 style="font-size: 1.3em;">ó</h3>
-            <div class="button-box">
-                <a type="button" href="#S1" style="width: 100%; margin-bottom: 20px;">Inicia Sesión<i class="arrow-right"></i></a>
+            <h3 *ngIf="!seInicioSesion" style="font-size: 1.3em;">ó</h3>
+            <div *ngIf="!seInicioSesion" class="button-box">
+                <a type="button" routerLink="/seguridad/identificacion" style="width: 100%; margin-bottom: 20px;">Inicia Sesión<i class="arrow-right"></i></a>
+            </div>
+
+            <h3 *ngIf="seInicioSesion" style="font-size: 1.3em;"><b>{{rol}}:</b> {{correo}}</h3>
+            <div *ngIf="seInicioSesion" class="button-box">
+                <a type="button" routerLink="/admin/crear-mascota" style="width: 100%; margin-bottom: 20px;">Crea una Nueva Solicitud de Afiliación<i class="arrow-right"></i></a>
+            </div>
+            <h3 *ngIf="seInicioSesion" style="font-size: 1.3em;">ó</h3>
+            <div *ngIf="seInicioSesion" class="button-box">
+                <a type="button" routerLink="/seguridad/consultar-mascota" style="width: 100%; margin-bottom: 20px;">Consulta el listado de Solicitudes<i class="arrow-right"></i></a>
             </div>
         </div>  
     </div>
