@@ -9,7 +9,7 @@ import { SeguridadService } from './seguridad.service';
 })
 export class ProductoService {
 
-  url = 'https://backend-mascotas.onrender.com/';
+  url = 'https://backend-mascotas.onrender.com';
   token: String = '';
 
   constructor(private http: HttpClient,
